@@ -7,18 +7,40 @@
 //
 
 import UIKit
+import SBRunLoop
 
 class ViewController: UIViewController {
+    
+    // MARK: - Properties
+    var runLoop: SBRunLoop?
+    
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        runLoop = SBRunLoop(mode: .semiFixed(timeStep: 1.0 / 200))
+        runLoop?.update = update
+        runLoop?.preUpdate = preUpdate
+        runLoop?.postUpdate = postUpdate
+        runLoop!.start()
+    }
+    
+    func preUpdate(dt: CFTimeInterval) {
+        print("PreUpdate: \(dt)")
+    }
+    
+    func update(dt: CFTimeInterval) {
+        print("Upate: \(dt)")
+    }
+    
+    func postUpdate(dt: CFTimeInterval) {
+        print("PostUpdate: \(dt)")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
 
 }
 
