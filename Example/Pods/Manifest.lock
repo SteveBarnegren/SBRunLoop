@@ -1,0 +1,16 @@
+PODS:
+  - SBRunLoop (0.1.0)
+
+DEPENDENCIES:
+  - SBRunLoop (from `../`)
+
+EXTERNAL SOURCES:
+  SBRunLoop:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SBRunLoop: 956523f44aa1e330acdeb9da99d2637fdb9ee932
+
+PODFILE CHECKSUM: cb9454c0590655706c2b0c6ed87cddb7d67c63d5
+
+COCOAPODS: 1.2.1

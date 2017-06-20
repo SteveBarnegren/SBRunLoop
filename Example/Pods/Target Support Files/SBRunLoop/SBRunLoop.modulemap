@@ -1,0 +1,6 @@
+framework module SBRunLoop {
+  umbrella header "SBRunLoop-umbrella.h"
+
+  export *
+  module * { export * }
+}
