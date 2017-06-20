@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SBRunLoop_Example' do
+  pod 'SBRunLoop', :path => '../'
+
+  target 'SBRunLoop_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
