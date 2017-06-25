@@ -8,17 +8,22 @@
         self.handler = handler
         
         super.init()
+        start()
+    }
+    
+    func start() {
         
         caDisplayLink = CADisplayLink(target: self,
                                       selector: #selector(displayLinkCallback(displaylink:)))
         
         caDisplayLink?.add(to: .current,
                            forMode: .commonModes)
-        
     }
     
     func invalidate() {
         caDisplayLink?.invalidate()
+        caDisplayLink = nil
+        
     }
     
     @objc private func displayLinkCallback(displaylink: CADisplayLink) {
@@ -49,6 +54,7 @@ public class SBRunLoop {
         
         savedTimeStamp = nil
         displayLink = DisplayLink(handler: tick)
+        isRunning = true
     }
     
     public func stop() {
@@ -57,7 +63,9 @@ public class SBRunLoop {
             return
         }
         
-        displayLink = nil        
+        displayLink?.invalidate()
+        displayLink = nil
+        isRunning = false
     }
     
     public var mode: RunLoopMode
