@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        runLoop = SBRunLoop(mode: .variable)
+        runLoop = SBRunLoop(mode: .semiFixed(timeStep: 1/120))
         runLoop.update = update(dt:)
         runLoop.start()
     }
